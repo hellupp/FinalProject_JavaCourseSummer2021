@@ -51,7 +51,7 @@ public class LoginController {
         }
         if (!bindingResult.hasErrors()) {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User Name or Password invalid, please verify");
+            modelAndView.addObject("successMessage", "You have been registered successfully");
             modelAndView.addObject("user", new User());
 
         }
@@ -69,7 +69,7 @@ public class LoginController {
 ////        modelAndView.setViewName("admin");
 ////        return modelAndView;
 //
-//        return "home.html";
+//        return "adminHome.html";
 //    }
 
 

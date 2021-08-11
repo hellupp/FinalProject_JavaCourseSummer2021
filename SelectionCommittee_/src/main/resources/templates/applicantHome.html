@@ -14,20 +14,20 @@
 <div class="container">
 
     <form th:action="@{/logout}" method="get">
-        <button class="btn btn-md btn-danger btn-block" name="registration"
+        <button class="btn btn-md btn-danger btn-block" name="logout"
                 type="Submit" th:utext="#{lang.logout}">
         </button>
     </form>
 
-    <form th:action="@{/allUsers}" method="get">
-        <button class="btn btn-md btn-info btn-block" name="allUsers"
-                type="Submit" th:utext="#{lang.all.users}">
+    <form th:action="@{/regOnFaculty}" method="get">
+        <button class="btn btn-md btn-info btn-block" name="regOnFaculty"
+                type="Submit" th:utext="#{lang.reg.on.faculty}">
         </button>
     </form>
 
-    <form th:action="@{/logout}" method="get">
-        <button class="btn btn-md btn-danger btn-block" name="registration"
-                type="Submit" th:utext="#{lang.logout}">
+    <form th:action="@{/myApplications}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="myApplications"
+                type="Submit" th:utext="#{lang.show.applications}">
         </button>
     </form>
 
