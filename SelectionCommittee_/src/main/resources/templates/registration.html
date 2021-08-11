@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration Form</title>
+    <title th:utext="#{lang.reg.form}"></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -10,7 +10,7 @@
 </head>
 <body>
 <form th:action="@{/}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+    <button class="btn btn-md btn-warning btn-block" type="Submit" th:utext="#{lang.go.to.login}"></button>
 </form>
 
 <div class="container">
@@ -19,27 +19,63 @@
             <form autocomplete="off" action="#" th:action="@{/registration}"
                   th:object="${user}" method="post" class="form-horizontal"
                   role="form">
-                <h2>Registration Form</h2>
+                <a th:href="@{/registration?lang=en}" style="align-content: center">Eng</a>
+                &nbsp;|&nbsp;
+                <a th:href="@{/registration?lang=ua}" style="align-content: center">Ukr</a>
+                <h2 th:utext="#{lang.reg.form}"></h2>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{lastName}"
+                               th:placeholder="#{lang.last.name}" class="form-control"/>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-9">
                         <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
                                class="validation-message"></label>
-                        <input type="text" th:field="*{name}" placeholder="Name"
+                        <input type="text" th:field="*{name}" th:placeholder="#{lang.name}"
+                               class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{secondName}" th:placeholder="#{lang.second.name}"
                                class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                        <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
                                class="validation-message"></label>
-                        <input type="text" th:field="*{lastName}"
-                               placeholder="Last Name" class="form-control"/>
+                        <input type="text" th:field="*{city}" th:placeholder="#{lang.city}"
+                               class="form-control"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{email}" placeholder="Email"
+                        <label th:if="${#fields.hasErrors('district')}" th:errors="*{district}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{district}" th:placeholder="#{lang.district}"
+                               class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label th:if="${#fields.hasErrors('institutionName')}" th:errors="*{institutionName}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{institutionName}" th:placeholder="#{lang.institution.name}"
+                               class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{email}" th:placeholder="#{lang.email}"
                                class="form-control"/> <label
                             th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
                             class="validation-message"></label>
@@ -47,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{userName}" placeholder="User Name"
+                        <input type="text" th:field="*{userName}" th:placeholder="#{lang.user.name}"
                                class="form-control"/> <label
                             th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
                             class="validation-message"></label>
@@ -56,7 +92,7 @@
                 <div class="form-group">
                     <div class="col-sm-9">
                         <input type="password" th:field="*{password}"
-                               placeholder="Password" class="form-control"/> <label
+                               th:placeholder="#{lang.password}" class="form-control"/> <label
                             th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                             class="validation-message"></label>
                     </div>
@@ -64,7 +100,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                        <button type="submit" class="btn btn-primary btn-block" th:utext="#{lang.reg.user}"></button>
                     </div>
                 </div>
 

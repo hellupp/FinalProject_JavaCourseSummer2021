@@ -1,7 +1,9 @@
 package com.project.SelectionCommittee.configuration;
 
+import com.project.SelectionCommittee.handler.AuthenticationSuccessHandlerImpl;
 import com.project.SelectionCommittee.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -42,19 +44,26 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(loginPage).permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/applicant/**").hasAuthority("USER")
                 .anyRequest()
                 .authenticated()
                 .and().csrf().disable()
                 .formLogin()
                 .loginPage(loginPage)
                 .loginPage("/")
+                .loginProcessingUrl("/login")
+                .successHandler(authenticationSuccessHandler())
                 .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/admin/home")
                 .usernameParameter("user_name")
                 .passwordParameter("password")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
                 .logoutSuccessUrl(loginPage).and().exceptionHandling();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandlerImpl authenticationSuccessHandler() {
+        return new AuthenticationSuccessHandlerImpl();
     }
 
     @Override
@@ -63,5 +72,19 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
     }
+
+
+
+    @Bean
+    public MyUserDetailsService myUserDetailsService() {
+        return new MyUserDetailsService();
+    }
+
+    @Autowired
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(myUserDetailsService()).passwordEncoder(new SecurityConfiguration().passwordEncoder());
+    }
+
+
 
 }
