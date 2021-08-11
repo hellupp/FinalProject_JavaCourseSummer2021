@@ -1,6 +1,6 @@
-package com.gpch.login.configuration;
+package com.project.SelectionCommittee.configuration;
 
-import com.gpch.login.service.MyUserDetailsService;
+import com.project.SelectionCommittee.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

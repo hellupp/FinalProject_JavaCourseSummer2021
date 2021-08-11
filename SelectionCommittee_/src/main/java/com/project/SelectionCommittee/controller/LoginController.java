@@ -1,7 +1,7 @@
-package com.gpch.login.controller;
+package com.project.SelectionCommittee.controller;
 
-import com.gpch.login.model.User;
-import com.gpch.login.service.UserService;
+import com.project.SelectionCommittee.model.User;
+import com.project.SelectionCommittee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

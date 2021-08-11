@@ -1,4 +1,4 @@
-package com.gpch.login;
+package com.project.SelectionCommittee;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

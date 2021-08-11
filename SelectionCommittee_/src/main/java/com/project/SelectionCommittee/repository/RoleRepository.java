@@ -1,6 +1,6 @@
-package com.gpch.login.repository;
+package com.project.SelectionCommittee.repository;
 
-import com.gpch.login.model.Role;
+import com.project.SelectionCommittee.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

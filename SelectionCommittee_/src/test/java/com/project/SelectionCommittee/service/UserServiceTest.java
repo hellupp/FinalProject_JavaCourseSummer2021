@@ -1,8 +1,8 @@
-package com.gpch.login.service;
+package com.project.SelectionCommittee.service;
 
-import com.gpch.login.model.User;
-import com.gpch.login.repository.RoleRepository;
-import com.gpch.login.repository.UserRepository;
+import com.project.SelectionCommittee.model.User;
+import com.project.SelectionCommittee.repository.RoleRepository;
+import com.project.SelectionCommittee.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

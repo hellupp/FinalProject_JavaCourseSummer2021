@@ -1,7 +1,7 @@
-package com.gpch.login.service;
+package com.project.SelectionCommittee.service;
 
-import com.gpch.login.model.Role;
-import com.gpch.login.model.User;
+import com.project.SelectionCommittee.model.Role;
+import com.project.SelectionCommittee.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

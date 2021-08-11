@@ -1,7 +1,9 @@
-package com.gpch.login.service
+package com.project.SelectionCommittee.service
 
-import com.gpch.login.repository.RoleRepository
-import com.gpch.login.repository.UserRepository
+
+import com.project.SelectionCommittee.model.User
+import com.project.SelectionCommittee.repository.RoleRepository
+import com.project.SelectionCommittee.repository.UserRepository
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import spock.lang.Specification
 
@@ -15,7 +17,7 @@ class UserServiceGroovyTest extends Specification {
 
     def "Find User By Email"() {
         setup: "Setting response from the user repository"
-        userRepository.findByEmail("test@test.com") >> com.gpch.login.model.User.builder()
+        userRepository.findByEmail("test@test.com") >> User.builder()
                 .id(1)
                 .email("test@test.com")
                 .build()
