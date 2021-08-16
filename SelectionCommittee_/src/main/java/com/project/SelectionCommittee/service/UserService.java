@@ -56,4 +56,23 @@ public class UserService {
         return false;
     }
 
+    public boolean blockUser(Long id) {
+        if (userRepository.findById(id).isPresent()) {
+            userRepository.findById(id).get().setActive(false);
+            userRepository.save(userRepository.findById(id).get());
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean unblockUser(Long id) {
+        if (userRepository.findById(id).isPresent()) {
+            userRepository.findById(id).get().setActive(true);
+            userRepository.save(userRepository.findById(id).get());
+            return true;
+        }
+
+        return false;
+    }
 }

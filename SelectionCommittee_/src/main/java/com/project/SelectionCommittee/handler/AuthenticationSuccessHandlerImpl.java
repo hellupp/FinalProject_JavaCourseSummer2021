@@ -1,6 +1,5 @@
 package com.project.SelectionCommittee.handler;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -28,7 +27,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
     protected String determineTargetUrl(final Authentication authentication) {
 
         Map<String, String> roleTargetUrlMap = new HashMap<>();
-        roleTargetUrlMap.put("ADMIN", "/admin/home");
+        roleTargetUrlMap.put("ADMIN", "/admin");
         roleTargetUrlMap.put("APPLICANT", "/applicant");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();

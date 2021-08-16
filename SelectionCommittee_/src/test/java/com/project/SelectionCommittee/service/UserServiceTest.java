@@ -33,7 +33,7 @@ public class UserServiceTest {
                                                mockRoleRepository,
                                                mockBCryptPasswordEncoder);
         user = User.builder()
-                .id(1)
+                .id(1L)
                 .name("Gustavo")
                 .lastName("Ponce")
                 .email("test@test.com")

@@ -103,8 +103,7 @@
                         <button type="submit" class="btn btn-primary btn-block" th:utext="#{lang.reg.user}"></button>
                     </div>
                 </div>
-
-                <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+                    <h2 th:if="${success}"><span class="text-success" th:utext="#{lang.success.reg}"></span></h2>
 
             </form>
         </div>

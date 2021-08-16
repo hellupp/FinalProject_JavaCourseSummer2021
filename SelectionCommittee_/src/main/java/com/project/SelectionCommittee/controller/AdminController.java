@@ -4,9 +4,7 @@ import com.project.SelectionCommittee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AdminController {
@@ -18,19 +16,30 @@ public class AdminController {
         return "adminHome";
     }
 
-    @PostMapping("/admin/home")
-    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
-                              @RequestParam(required = true, defaultValue = "" ) String action,
-                              Model model) {
-        if (action.equals("delete")){
-            userService.deleteUser(userId);
-        }
-        return "adminHome";
+    @GetMapping("/allUsers")
+    public String listApplicants(Model model) {
+        model.addAttribute("applicants", userService.allUsers());
+        return "adminAllUsers";
     }
 
-    @GetMapping("/admin/allUsers")
-    public String listStudent(Model model) {
-        model.addAttribute("users", userService.allUsers());
+    @GetMapping("/delete/{id}")
+    public String  deleteUser(@PathVariable(value = "id") Long id, Model model) {
+        userService.deleteUser(id);
+        model.addAttribute("applicants", userService.allUsers());
+        return "adminAllUsers";
+    }
+
+    @GetMapping("/block/{id}")
+    public String  blockUser(@PathVariable(value = "id") Long id, Model model) {
+        userService.blockUser(id);
+        model.addAttribute("applicants", userService.allUsers());
+        return "adminAllUsers";
+    }
+
+    @GetMapping("/unblock/{id}")
+    public String  unblockUser(@PathVariable(value = "id") Long id, Model model) {
+        userService.unblockUser(id);
+        model.addAttribute("applicants", userService.allUsers());
         return "adminAllUsers";
     }
 

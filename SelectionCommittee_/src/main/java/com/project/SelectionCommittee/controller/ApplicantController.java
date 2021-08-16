@@ -28,10 +28,10 @@ public class ApplicantController {
         return "applicantHome";
     }
 
-    @GetMapping("/applicant/allUsers")
-    public String listStudent(Model model) {
-        model.addAttribute("users", userService.allUsers());
-        return "adminAllUsers";
-    }
+//    @GetMapping("/applicant/allUsers")
+//    public String listStudent(Model model) {
+//        model.addAttribute("users", userService.allUsers());
+//        return "adminAllUsers";
+//    }
 
 }
