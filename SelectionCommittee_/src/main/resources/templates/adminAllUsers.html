@@ -39,7 +39,7 @@
             </thead>
             <tbody>
             <tr th:if="${#lists.isEmpty(applicants)}">
-                <td colspan="5" th:utext="#{lang.users.not.found}"></td>
+                <td colspan="5" th:utext="#{lang.not.found}"></td>
             </tr>
             <tr th:each="applicant : ${applicants}">
                 <td th:text="${applicant.id}">ID</td>

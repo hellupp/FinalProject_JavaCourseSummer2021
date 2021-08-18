@@ -18,15 +18,15 @@ public class ApplicantController {
         return "applicantHome";
     }
 
-    @PostMapping("/applicant/home")
-    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
-                              @RequestParam(required = true, defaultValue = "" ) String action,
-                              Model model) {
-        if (action.equals("delete")){
-            userService.deleteUser(userId);
-        }
-        return "applicantHome";
-    }
+//    @PostMapping("/applicant/home")
+//    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
+//                              @RequestParam(required = true, defaultValue = "" ) String action,
+//                              Model model) {
+//        if (action.equals("delete")){
+//            userService.deleteUser(userId);
+//        }
+//        return "applicantHome";
+//    }
 
 //    @GetMapping("/applicant/allUsers")
 //    public String listStudent(Model model) {

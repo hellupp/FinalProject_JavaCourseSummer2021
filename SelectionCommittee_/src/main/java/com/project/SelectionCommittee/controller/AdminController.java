@@ -1,5 +1,6 @@
 package com.project.SelectionCommittee.controller;
 
+import com.project.SelectionCommittee.service.FacultyService;
 import com.project.SelectionCommittee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private FacultyService facultyService;
 
     @GetMapping("/admin/home")
     public String home() {
@@ -41,6 +44,25 @@ public class AdminController {
         userService.unblockUser(id);
         model.addAttribute("applicants", userService.allUsers());
         return "adminAllUsers";
+    }
+
+    @GetMapping("/allFaculties")
+    public String listFaculties(Model model) {
+        model.addAttribute("faculties", facultyService.allFaculties());
+        return "adminAllFaculties";
+    }
+
+//    @GetMapping("/edit/{id}")
+//    public String  editFaculty(@PathVariable(value = "id") Long id, Model model) {
+//        model.addAttribute("applicants", userService.allUsers());
+//        return "adminAllUsers";
+//    }
+
+    @GetMapping("/delete_faculty/{id}")
+    public String  deleteFaculty(@PathVariable(value = "id") Long id, Model model) {
+        facultyService.deleteFaculty(id);
+        model.addAttribute("faculties", facultyService.allFaculties());
+        return "adminAllFaculties";
     }
 
 }
