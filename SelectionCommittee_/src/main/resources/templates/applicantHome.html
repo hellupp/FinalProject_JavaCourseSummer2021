@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 
 <head>
     <title th:utext="#{lang.title}"></title>
@@ -19,8 +19,8 @@
         </button>
     </form>
 
-    <form th:action="@{/regOnFaculty}" method="get">
-        <button class="btn btn-md btn-info btn-block" name="regOnFaculty"
+    <form th:action="@{/showFaculties}" method="get">
+        <button class="btn btn-md btn-info btn-block" name="showFaculties"
                 type="Submit" th:utext="#{lang.reg.on.faculty}">
         </button>
     </form>

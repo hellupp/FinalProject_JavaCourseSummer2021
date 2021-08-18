@@ -3,70 +3,68 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title th:utext="#{lang.title}"></title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title th:utext="#{lang.title}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div class="container">
 
-  <form th:action="@{/logout}" method="get">
-    <button class="btn btn-md btn-danger btn-block" name="logout"
-            type="Submit" th:utext="#{lang.logout}">
-    </button>
-  </form>
-  <form th:action="@{/admin/home}" method="get">
-    <button class="btn btn-md btn-danger btn-block" name="back"
-            type="Submit" th:utext="#{lang.back}">
-    </button>
-  </form>
+    <form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="logout"
+                type="Submit" th:utext="#{lang.logout}">
+        </button>
+    </form>
+    <form th:action="@{/admin/home}" method="get">
+        <button class="btn btn-md btn-default btn-block" name="back"
+                type="Submit" th:utext="#{lang.back}">
+        </button>
+    </form>
 
-  <h1 th:utext="#{lang.faculties.list}"></h1>
-  <div>
-    <table class="table table-striped table-bordered">
-      <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th th:utext="#{lang.faculty.name.caps}" ></th>
-        <th th:utext="#{lang.faculty.university.id}" ></th>
-        <th th:utext="#{lang.faculty.licensed.caps}"></th>
-        <th th:utext="#{lang.faculty.budget.caps}"></th>
-        <th th:utext="#{lang.faculty.edit.caps}"></th>
-        <th th:utext="#{lang.faculty.delete.caps}"></th>
-<!--        <th th:utext="#{lang.delete.user}"></th>-->
-      </tr>
+    <h1 th:utext="#{lang.faculties.list}"></h1>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th th:utext="#{lang.faculty.name.caps}"></th>
+                <th th:utext="#{lang.faculty.university.id.caps}"></th>
+                <th th:utext="#{lang.faculty.licensed.caps}"></th>
+                <th th:utext="#{lang.faculty.budget.caps}"></th>
+                <th th:utext="#{lang.faculty.edit.caps}"></th>
+                <th th:utext="#{lang.faculty.delete.caps}"></th>
+                <!--        <th th:utext="#{lang.delete.user}"></th>-->
+            </tr>
 
-      </thead>
-      <tbody>
-      <tr th:if="${#lists.isEmpty(faculties)}">
-        <td colspan="5" th:utext="#{lang.not.found}"></td>
-      </tr>
-      <tr th:each="faculty : ${faculties}">
-        <td th:text="${faculty.id}">ID</td>
-        <td th:text="${faculty.facultyName}"></td>
-        <td th:text="${faculty.university_id}"></td>
-        <td th:text="${faculty.licensedVolume}"></td>
-        <td th:text="${faculty.budgetPlaces}"></td>
-        <td><a th:href="@{/edit_faculty/{id}(id=${faculty.id})}"
-               class="btn btn-block"
-               th:utext="#{lang.faculty.edit}"></a>
-        </td>
-<!--        <td>-->
-<!--          <a th:href="@{/unblock/{id}(id=${applicant.id})}"-->
-<!--             class="btn btn-block"-->
-<!--             th:utext="#{lang.unblock.button}"-->
-<!--             th:if="${applicant.getActive() == false}"></a>-->
-<!--        </td>-->
-
-        <td><a th:href="@{/delete_faculty/{id}(id=${faculty.id})}" class="btn btn-danger" th:utext="#{lang.delete.button}"></a></td>
-      </tr>
-      </tbody>
-
-    </table>
-  </div>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(faculties)}">
+                <td colspan="5" th:utext="#{lang.not.found}"></td>
+            </tr>
+            <tr th:each="faculty : ${faculties}">
+                <td th:text="${faculty.id}">ID</td>
+                <td th:text="${faculty.facultyName}"></td>
+                <td th:text="${faculty.university_id}"></td>
+                <td th:text="${faculty.licensedVolume}"></td>
+                <td th:text="${faculty.budgetPlaces}"></td>
+                <td><a th:href="@{/edit/{id}(id=${faculty.id})}"
+                       class="btn btn-block"
+                       th:utext="#{lang.faculty.edit}"></a>
+                </td>
+                <td><a th:href="@{/delete_faculty/{id}(id=${faculty.id})}" class="btn btn-danger"
+                       th:utext="#{lang.delete.button}"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <form th:action="@{/add}">
+        <button class="btn btn-md btn-default btn-block" name="add"
+                type="Submit" th:utext="#{lang.faculty.add}">
+        </button>
+    </form>
 </div>
 </body>
 </html>

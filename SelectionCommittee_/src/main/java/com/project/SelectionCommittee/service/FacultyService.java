@@ -46,6 +46,13 @@ public class FacultyService {
         return facultyRepository.save(faculty);
     }
 
+    public Faculty saveFaculty(Faculty faculty){
+        System.out.println(faculty.toString());
+        return facultyRepository.save(faculty);
+    }
+
+
+
 
 
 }

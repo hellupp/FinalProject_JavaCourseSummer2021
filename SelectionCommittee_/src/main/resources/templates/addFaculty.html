@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:utext="#{lang.title}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="logout"
+                type="Submit" th:utext="#{lang.logout}">
+        </button>
+    </form>
+    <form th:action="@{/allFaculties}" method="get">
+        <button class="btn btn-md btn-default btn-block" name="back"
+                type="Submit" th:utext="#{lang.back}">
+        </button>
+    </form>
+
+    <form action="#"
+          th:action="@{/add_faculty}"
+          th:object="${faculty}"
+          method="post">
+        <label for="facultyName" th:utext="#{lang.faculty.name}"></label>
+        <input type="text" th:field="*{facultyName}" id="facultyName" th:placeholder="#{lang.faculty.name}">
+        <span th:if="${#fields.hasErrors('facultyName')}" th:errors="*{facultyName}"></span>
+        <label for="licensedVolume" th:utext="#{lang.faculty.licensed}"></label>
+        <input type="text" th:field="*{licensedVolume}" id="licensedVolume" th:placeholder="#{lang.faculty.licensed}">
+        <span th:if="${#fields.hasErrors('licensedVolume')}" th:errors="*{licensedVolume}"></span>
+        <label for="budgetPlaces" th:utext="#{lang.faculty.budget}"></label>
+        <input type="text" th:field="*{budgetPlaces}" id="budgetPlaces" th:placeholder="#{lang.faculty.budget}">
+        <span th:if="${#fields.hasErrors('budgetPlaces')}" th:errors="*{budgetPlaces}"></span>
+        <label for="university_id" th:utext="#{lang.faculty.university.id}"></label>
+        <input type="text" th:field="*{university_id}" id="university_id"
+               th:placeholder="#{lang.faculty.university.id}">
+        <span th:if="${#fields.hasErrors('university_id')}" th:errors="*{university_id}"></span>
+        <input type="submit" th:value="#{lang.faculty.add.faculty}">
+    </form>
+
+</div>
+</body>
+</html>
