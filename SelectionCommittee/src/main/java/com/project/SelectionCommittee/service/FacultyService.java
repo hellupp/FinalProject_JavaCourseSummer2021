@@ -47,7 +47,6 @@ public class FacultyService {
     }
 
     public Faculty saveFaculty(Faculty faculty){
-        System.out.println(faculty.toString());
         return facultyRepository.save(faculty);
     }
 

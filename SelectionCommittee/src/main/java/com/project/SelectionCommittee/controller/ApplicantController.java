@@ -56,15 +56,13 @@ public class ApplicantController {
         return modelAndView;
     }
 
-//    @PostMapping("/applicant/home")
-//    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
-//                              @RequestParam(required = true, defaultValue = "" ) String action,
-//                              Model model) {
-//        if (action.equals("delete")){
-//            userService.deleteUser(userId);
-//        }
-//        return "applicantHome";
-//    }
+
+
+    @PostMapping("/register/{id}")
+    public String  regOnFaculty(Model model, @PathVariable("id") String id) {
+
+        return "registrationOnFaculty";
+    }
 
 //    @GetMapping("/applicant/allUsers")
 //    public String listStudent(Model model) {

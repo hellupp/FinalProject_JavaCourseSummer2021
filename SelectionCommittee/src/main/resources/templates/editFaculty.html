@@ -40,7 +40,7 @@
     <label for="university_id" th:utext="#{lang.faculty.university.id}"></label>
     <input type="text" th:field="*{university_id}" id="university_id" th:placeholder="#{lang.faculty.university.id}">
     <span th:if="${#fields.hasErrors('university_id')}" th:errors="*{university_id}"></span>
-    <input type="submit" value="Update Faculty">
+    <input type="submit" th:value="#{lang.update.fac}" name="update">
   </form>
 
 </div>

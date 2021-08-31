@@ -5,9 +5,11 @@ import com.project.SelectionCommittee.model.User;
 import com.project.SelectionCommittee.repository.RoleRepository;
 import com.project.SelectionCommittee.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -45,6 +47,11 @@ public class UserService {
     }
 
     public List<User> allUsers() {
+//        List<User> allUsers = new ArrayList<>();
+//        for(int i = 1; i < userRepository.findAll().size(); i++){
+//            allUsers.add(userRepository.findByUserId((long) i + 1));
+//        }
+//        return allUsers;
         return userRepository.findAll();
     }
 
