@@ -10,6 +10,7 @@ import com.project.SelectionCommittee.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 @Service
 public class FacultyService {
 
+    @Autowired
     private FacultyRepository facultyRepository;
 
     @Autowired
@@ -46,8 +48,14 @@ public class FacultyService {
         return facultyRepository.save(faculty);
     }
 
+
     public Faculty saveFaculty(Faculty faculty){
+        System.out.println(faculty.toString());
         return facultyRepository.save(faculty);
+    }
+
+    public List<Faculty> applicationsOfUser(User user){
+        return facultyRepository.findAllByUser(user.getId());
     }
 
 

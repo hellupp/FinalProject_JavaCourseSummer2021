@@ -31,7 +31,7 @@ public class Faculty {
     private int budgetPlaces;
 
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "faculty_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "faculty_id"))
+    @JoinTable(name = "faculty_user", joinColumns = @JoinColumn(name = "faculty_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> users;
 
     @JoinColumn(name = "university_id", foreignKey = @ForeignKey(name = "university_id"))
