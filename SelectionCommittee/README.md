@@ -11,8 +11,7 @@ The system has a list of faculties for which it is necessary to implement the po
   During registration it is necessary to enter the name, email, city, region, name of the educational institution
   (optional: attach a scan of the certificate with grades).
   The applicant can register for one or more faculties.
-  When registering for the faculty, the student enters the results in the relevant subjects,
-  as well as grades from the certificate.
+  When registering for the faculty, the student enters the results in the relevant subjects.
   
   The system administrator has the rights to:
 - adding, deleting or editing faculty;
